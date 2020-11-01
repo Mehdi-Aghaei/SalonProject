@@ -16,7 +16,7 @@ CREATE TABLE services
 CREATE TABLE appointment
 (
     appointment_id        SERIAL PRIMARY KEY,
-    name                 varchar(80) NOT NULL,
+    full_name                 varchar(80) NOT NULL,
     phone_number         varchar(20) NULL,
     appointment_date     date NOT NULL,
     start_time           time without time zone NOT NULL,
