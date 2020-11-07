@@ -3,14 +3,13 @@ package com.beautysalon.models;
 import javax.persistence.Entity;
 import javax.persistence.*;
 
-@Entity(name = "salon")
+@Entity(name = "appointment")
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long appointment_id;
-    private String name;
-    private Integer phone;
-    private String service;
+    private String full_name;
+    private String phone_number;
     private String appointment_date;
 
 
@@ -26,28 +25,20 @@ public class Appointment {
         this.appointment_id = appointment_id;
     }
 
-    public String getName() {
-        return name;
+    public String getFull_name() {
+        return full_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
     }
 
-    public Integer getPhone() {
-        return phone;
+    public String getPhone_number() {
+        return phone_number;
     }
 
-    public void setPhone(Integer phone) {
-        this.phone = phone;
-    }
-
-    public String getService() {
-        return service;
-    }
-
-    public void setService(String service) {
-        this.service = service;
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 
     public String getAppointment_date() {
