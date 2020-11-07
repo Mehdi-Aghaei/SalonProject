@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+// http://localhost:8080/api/v1/appointment url that shows info
 
 @RestController
 @RequestMapping("/api/v1/appointment")
