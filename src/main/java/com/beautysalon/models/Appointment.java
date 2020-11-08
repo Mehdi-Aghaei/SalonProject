@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.*;
 
 @Entity(name = "appointment")
+// we use @entity to define our database table name for this model
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 // this annotation is for to ignore those properties these two will load all relational data and will cause problem
 public class Appointment {
@@ -18,6 +19,11 @@ public class Appointment {
     private Integer phone_number;
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date appointment_date;
+    /*
+    these attribute that we define up is equal to columns in database
+    and @Id and generated values is for our primary key and with these config spring data jpa will handle
+    our connection to database
+     */
 
 
     public Appointment() {
