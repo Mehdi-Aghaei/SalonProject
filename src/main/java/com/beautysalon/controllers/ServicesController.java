@@ -3,9 +3,7 @@ package com.beautysalon.controllers;
 import com.beautysalon.models.Services;
 import com.beautysalon.repositories.ServicesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,4 +16,6 @@ public class ServicesController {
     public List<Services> list(){
         return ServicesRepo.findAll();
     }
+    @PostMapping
+    public Services create(@RequestBody final Services services){ return ServicesRepo.saveAndFlush(services);}
 }

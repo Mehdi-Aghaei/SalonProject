@@ -22,9 +22,18 @@ public class Appointment {
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date appointment_date;
 
-    @OneToMany(mappedBy="appointment", cascade = CascadeType.ALL)
-    private List<Services> services;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "service_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Services services;
 
+    public Services getServices() {
+        return services;
+    }
+
+    public void setServices(Services services) {
+        this.services = services;
+    }
 /*
     these attribute that we define up is equal to columns in database
     and @Id and generated values is for our primary key and with these config spring data jpa will handle
@@ -66,13 +75,6 @@ public class Appointment {
 
     public void setAppointment_date(Date appointment_date) {
         this.appointment_date = appointment_date;
-    }
-    public List<Services> getServices() {
-        return services;
-    }
-
-    public void setServices(List<Services> services) {
-        this.services = services;
     }
 
 
