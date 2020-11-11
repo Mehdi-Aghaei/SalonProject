@@ -1,8 +1,10 @@
 package com.beautysalon.models;
-import java.util.Date;
+import java.util.*;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
@@ -16,15 +18,18 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long appointment_id;
     private String full_name;
-    private Integer phone_number;
+    private String phone_number;
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date appointment_date;
-    /*
+
+    @OneToMany(mappedBy="appointment", cascade = CascadeType.ALL)
+    private List<Services> services;
+
+/*
     these attribute that we define up is equal to columns in database
     and @Id and generated values is for our primary key and with these config spring data jpa will handle
     our connection to database
      */
-
 
     public Appointment() {
 
@@ -47,11 +52,11 @@ public class Appointment {
         this.full_name = full_name;
     }
 
-    public Integer getPhone_number() {
+    public String getPhone_number() {
         return phone_number;
     }
 
-    public void setPhone_number(Integer phone_number) {
+    public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
 
@@ -62,4 +67,13 @@ public class Appointment {
     public void setAppointment_date(Date appointment_date) {
         this.appointment_date = appointment_date;
     }
+    public List<Services> getServices() {
+        return services;
+    }
+
+    public void setServices(List<Services> services) {
+        this.services = services;
+    }
+
+
 }
