@@ -1,14 +1,10 @@
 package com.main.salon.models;
 
 import java.util.*;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.persistence.Entity;
+import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
+
 
 @Entity(name = "appointment")
 // we use @entity to define our database table name for this model
@@ -20,8 +16,9 @@ public class Appointment {
     private Long appointment_id;
     private String full_name;
     private String phone_number;
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date appointment_date;
+    private Integer service_id ;
 /*
     these attribute that we define up is equal to columns in database
     and @Id and generated values is for our primary key and with these config spring data jpa will handle
@@ -63,6 +60,15 @@ public class Appointment {
 
     public void setAppointment_date(Date appointment_date) {
         this.appointment_date = appointment_date;
+    }
+
+
+    public Integer getService_id() {
+        return service_id;
+    }
+
+    public void setService_id(Integer service_id) {
+        this.service_id = service_id;
     }
 
 
