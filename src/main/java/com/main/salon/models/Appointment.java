@@ -6,7 +6,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 
 
-@Entity(name = "appointment")
+@Entity
+@Table(name="appointment")
 // we use @entity to define our database table name for this model
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 // this annotation is for to ignore those properties these two will load all relational data and will cause problem
@@ -18,7 +19,24 @@ public class Appointment {
     private String phone_number;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date appointment_date;
-    private Integer service_id ;
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "service_id", referencedColumnName = "service_id")
+    private Services services;
+
+    public Services getServices() {
+        return services;
+    }
+
+    public void setServices(Services services) {
+        this.services = services;
+    }
+
+    public Appointment(String full_name, String phone_number, Date appointment_date, Services services) {
+        this.full_name = full_name;
+        this.phone_number = phone_number;
+        this.appointment_date = appointment_date;
+        this.services = services;
+    }
 /*
     these attribute that we define up is equal to columns in database
     and @Id and generated values is for our primary key and with these config spring data jpa will handle
@@ -63,13 +81,6 @@ public class Appointment {
     }
 
 
-    public Integer getService_id() {
-        return service_id;
-    }
-
-    public void setService_id(Integer service_id) {
-        this.service_id = service_id;
-    }
 
 
 }

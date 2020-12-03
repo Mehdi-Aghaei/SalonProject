@@ -10,7 +10,8 @@ import javax.persistence.Id;
 import java.util.List;
 
 
-@Entity(name="services")
+@Entity
+@Table(name="services")
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Services {
     @Id
@@ -18,6 +19,22 @@ public class Services {
     private Long service_id;
     private String service_name;
     private Integer service_price;
+    @OneToOne(fetch = FetchType.LAZY,mappedBy = "services")
+    private Appointment appointment;
+
+    public Services(String service_name, Integer service_price, Appointment appointment) {
+        this.service_name = service_name;
+        this.service_price = service_price;
+        this.appointment = appointment;
+    }
+
+    public Appointment getAppointment() {
+        return appointment;
+    }
+
+    public void setAppointment(Appointment appointment) {
+        this.appointment = appointment;
+    }
 
     public Services(){
     }
