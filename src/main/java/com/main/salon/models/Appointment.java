@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long appointment_id;
+    private Long id;
     private String full_name;
     private String phone_number;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -46,14 +46,12 @@ public class Appointment {
     public Appointment() {
 
     }
-
-    public Long getAppointment_id() {
-
-        return appointment_id;
+    public Long getId() {
+        return id;
     }
 
-    public void setAppointment_id(Long appointment_id) {
-        this.appointment_id = appointment_id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFull_name() {
