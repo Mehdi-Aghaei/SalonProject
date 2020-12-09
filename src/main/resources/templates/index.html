@@ -21,15 +21,15 @@
 			<thead>
 				<tr>
 					<th>
-						<a th:href="@{'/page/' + ${currentPage} + '?sortField=firstName&sortDir=' + ${reverseSortDir}}">
+						<a th:href="@{'/page/' + ${currentPage} + '?sortField=full_name&sortDir=' + ${reverseSortDir}}">
 							 Name</a>
 					</th>
 					<th>
-					<a th:href="@{'/page/' + ${currentPage} + '?sortField=lastName&sortDir=' + ${reverseSortDir}}">
+					<a th:href="@{'/page/' + ${currentPage} + '?sortField=phone_number&sortDir=' + ${reverseSortDir}}">
 							Phone</a>
 					</th>
 					<th>
-					<a th:href="@{'/page/' + ${currentPage} + '?sortField=email&sortDir=' + ${reverseSortDir}}">
+					<a th:href="@{'/page/' + ${currentPage} + '?sortField=appointment_date&sortDir=' + ${reverseSortDir}}">
 							Date</a>
 					</th>
 					<th> Actions </th>
