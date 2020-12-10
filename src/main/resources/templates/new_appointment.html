@@ -15,15 +15,16 @@
 			method="POST">
 			<input type="text" th:field="*{full_name}"
 				placeholder="Name" class="form-control mb-4 col-4">
-				
 				<input type="text" th:field="*{phone_number}"
 				placeholder="Phone" class="form-control mb-4 col-4">
-				
 				<input type="datetime-local" th:field="*{appointment_date}"
 				placeholder="Date" class="form-control mb-4 col-4">
-				<input type="number" class="form-control  mb-4 col-4"
-					   placeholder="service" th:field="*{services}" />
-				
+				<label for="exampleFormControlSelect1">Service select</label>
+				<select  class="form-control  mb-4 col-4"  th:field="*{services}" id="exampleFormControlSelect1">
+					<option value="1">Haircut(2800Huf)</option>
+					<option value="2">Laser(5000Huf)</option>
+					<option value="3">Tattoo(4000Huf)</option>
+				</select>
 				<button type="submit" class="btn btn-info col-2"> Save Appointment</button>
 		</form>
 		

@@ -22,7 +22,7 @@ public class Appointment {
     private String phone_number;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date appointment_date;
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "service_id", referencedColumnName = "service_id")
     private Services services;
 

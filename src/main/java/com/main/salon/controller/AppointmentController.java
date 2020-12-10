@@ -68,7 +68,7 @@ public class AppointmentController {
         model.addAttribute("sortDir", sortDir);
         model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
 
-        model.addAttribute("listEmployees", listAppointment);
+        model.addAttribute("listAppointment", listAppointment);
         return "index";
     }
 

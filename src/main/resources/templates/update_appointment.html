@@ -20,11 +20,17 @@
 			
 			<input type="text" th:field="*{full_name}" class="form-control mb-4 col-4">
 				
-				<input type="text" th:field="*{phone_number}" class="form-control mb-4 col-4">
+			<input type="text" th:field="*{phone_number}" class="form-control mb-4 col-4">
 				
-				<input type="date" th:field="*{appointment_date}" class="form-control mb-4 col-4">
-				
-				<button type="submit" class="btn btn-info col-2"> Update Appointment</button>
+			<input type="date" th:field="*{appointment_date}" class="form-control mb-4 col-4">
+			<label for="exampleFormControlSelect1">Service select</label>
+			<select  class="form-control  mb-4 col-4"  th:field="*{services}" id="exampleFormControlSelect1">
+				<option value="1">Haircut(2800Huf)</option>
+				<option value="2">Laser(5000Huf)</option>
+				<option value="3">Tattoo(4000Huf)</option>
+			</select>
+
+			<button type="submit" class="btn btn-info col-2"> Update Appointment</button>
 		</form>
 		
 		<hr>
